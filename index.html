@@ -1,73 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./new.css" />
     <title>Document</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section class="first">
-        <div class="product-container">
-            <h1>products</h1>
-            <div class="product-box-1">
-                <h3 class="product-box-title-1">horn</h3>
-                <img class="product-box-image-1" src="./download.jpg" alt="" />
-                <p class="product-box-detail-1">quantitiy----------<span>34</span></p>
-            </div>
+      <h1 class="heading">products</h1>
+      <div class="product-container">
+        <div class="product-box-1">
+          <h3 class="product-box-title-1">horn</h3>
+          <img class="product-box-image-1" src="./download.jpg" alt="" />
+          <p class="product-box-detail-1">quantitiy----------<span>34</span></p>
+          <p class="product-box-detail-1">price----------<span>74</span></p>
         </div>
+
+        <div class="product-box-1">
+            <button id="horn-edit" onclick="edit()">edit</button>
+            <div class="popuphorn">
+                enter no of qantity
+                <input type="text" id="newvalueofhorn">
+                <input type="text" id="newprice">
+                <button>update</button>
+                <button>save</button>
+
+            </div>
+          <h3 class="product-box-title-1">horn</h3>
+          <img class="product-box-image-1" src="./download.jpg" alt="" />
+          <p class="product-box-detail-1">quantitiy----------<span id="horn-quantity">34</span></p>
+          <p class="product-box-detail-1">price----------<span id="horn-price">74</span></p>
+        </div>
+
+        <div class="product-box-1">
+          <h3 class="product-box-title-1">horn</h3>
+          <img class="product-box-image-1" src="./download.jpg" alt="" />
+          <p class="product-box-detail-1">quantitiy----------<span>34</span></p>
+          <p class="product-box-detail-1">price----------<span>74</span></p>
+        </div>
+
+        <div class="product-box-1">
+          <h3 class="product-box-title-1">horn</h3>
+          <img class="product-box-image-1" src="./download.jpg" alt="" />
+          <p class="product-box-detail-1">quantitiy----------<span>34</span></p>
+          <p class="product-box-detail-1">price----------<span>74</span></p>
+        </div>
+      </div>
     </section>
 
     <section id="myDiv" class="second">
-        <h1>div 2</h1>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
-            nesciunt.
-        </p>
+      <h1>div 2</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor,
+        nesciunt.
+      </p>
     </section>
     <button onclick="printDiv()">Print div</button>
 
     <script src="./app.js"></script>
     <script src="./jquery.js"></script>
-</body>
-
+  </body>
 </html>
