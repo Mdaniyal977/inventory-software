@@ -36,13 +36,11 @@ body{
   text-align: center;
   margin-bottom: 30px;
 }
-.popuphorn{
-  /* display: none; */
-  width:120px
-}
+
 .product-box-1{
   /* border: 2px solid; */
   display: flex;
+  margin-top: 55px;
   justify-content: center;
   align-items: center;
   box-shadow: var(--box-shadow); 
@@ -50,5 +48,42 @@ body{
   flex-direction: column;
   padding: 20px 10px 20px 10px;
   flex-wrap: wrap;
+  height: 500px;
   margin-left: 10px;
+}
+
+.container {
+  margin-top: 50px;
+  height: 100%; /* Set a fixed height for the container */
+  margin-bottom: 0px;
+}
+
+.container div .product-box-1{
+  margin-bottom: 20px; /* Add some spacing between the divs */
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.hidden {
+  display: none; /* Hide the divs that are not currently visible */
+}
+.new{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 44px;
+    background: cadetblue;
+}
+.new button{
+  padding: 10px 20px 10px 20px;
+    display: flex;
+    font-size: 18px;
+    justify-content: center;
+    text-align: center;
+    margin-left: 23px;
+    border: none;
+    font-weight: 700;
+    background: white;
+    box-shadow: 6px 10px 10px -4px #2f2d2d8c;
 }
