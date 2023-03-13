@@ -87,3 +87,70 @@ function showDivs() {
 
 // Show the first 10 divs on page load
 showDivs();
+
+
+
+
+
+
+// Get the current date and time
+const now = new Date();
+
+// Get the date and time strings
+const dateString = now.toLocaleDateString();
+const timeString = now.toLocaleTimeString();
+
+// Get the date and time span elements
+const dateSpan = document.querySelector('#date');
+const timeSpan = document.querySelector('#time');
+
+// Set the text content of the span elements to the date and time strings
+dateSpan.textContent = dateString;
+timeSpan.textContent = timeString;
+
+
+// Define an empty object to store stock and price values for each product
+let products = {};
+
+// Retrieve existing values from localStorage, if any
+const storedData = JSON.parse(localStorage.getItem("productData"));
+if (storedData) {
+  products = storedData;
+  // Loop through each product element on the page and update its stock and price values
+  const productElems = document.querySelectorAll(".product-box-1");
+  productElems.forEach((product) => {
+    const id = product.id;
+    if (id in products) {
+      const quantitySpan = product.querySelector(`#${id}-quantity`);
+      quantitySpan.textContent = products[id].stock;
+      const priceSpan = product.querySelector(`#${id}-price`);
+      priceSpan.textContent = products[id].price;
+    }
+  });
+}
+
+// get all update buttons
+const updateButtons = document.querySelectorAll(".update-button");
+
+// add event listener to each update button
+updateButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    // get the corresponding div element
+    const div = event.target.parentElement;
+
+    // prompt user for stock and price
+    const stock = prompt("Enter new stock:");
+    const price = prompt("Enter new price:");
+
+    // update the stock and price spans
+    div.querySelector("span[id$='-quantity']").textContent = stock;
+    div.querySelector("span[id$='-price']").textContent = price;
+
+    // display confirmation message
+    alert("Stock and price updated!");
+  });
+});
+
+
+
+

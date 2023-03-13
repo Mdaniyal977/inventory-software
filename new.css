@@ -57,14 +57,14 @@ body{
   width: 30%;
   margin-left: 10px;
 }
-#horn-price{
+#horn-price,#bolt-price,#light-price,#screw-price,#liver-price,#handel-price,#bulb-price{
   font-size: 22px;
   margin-left: 22px;
   border: 1px solid;
   padding: 10px;
   font-weight: 700;
 }
-#horn-quantity{
+#horn-quantity,#bolt-quantity,#light-quantity,#screw-quantity,#liver-quantity,#handel-quantity,#bulb-quantity{
   font-size: 22px;
   margin-left: 22px;
   border: 1px solid;
