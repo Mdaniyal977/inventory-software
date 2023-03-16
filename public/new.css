@@ -54,17 +54,17 @@ body{
   padding: 20px 10px 20px 10px;
   flex-wrap: wrap;
   /* height: 500px; */
-  width: 30%;
-  margin-left: 10px;
+  width: 250px;
+  margin-left: 20px;
 }
-#horn-price,#bolt-price,#light-price,#screw-price,#liver-price,#handel-price,#bulb-price{
+#horn-price,#bolt-price,#light-price,#screw-price,#liver-price,#handel-price,#bulb-price,#wiring-price,#seat-price{
   font-size: 22px;
   margin-left: 22px;
   border: 1px solid;
   padding: 10px;
   font-weight: 700;
 }
-#horn-quantity,#bolt-quantity,#light-quantity,#screw-quantity,#liver-quantity,#handel-quantity,#bulb-quantity{
+#horn-quantity,#bolt-quantity,#light-quantity,#screw-quantity,#liver-quantity,#handel-quantity,#bulb-quantity,#wiring-quantity,#seat-quantity{
   font-size: 22px;
   margin-left: 22px;
   border: 1px solid;
@@ -120,16 +120,39 @@ align-items: center;
   align-items: center;
 }
 #search-input{
-  padding: 12px;
+  padding: 18px;
   width: 60%;
   border: none;
 }
 #search button{
   background: white;
-  padding: 12px;
+  padding: 18px;
 
   border: none;
 }
+.update-button-div{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.update-button{
+font-size: 16px;
+    padding: 5px 20px 5px 20px;
+    background-color: cadetblue;
+    border: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+
+
+
+
+
+
+
+
 .second{
   text-align: center;
     display: flex;
@@ -157,11 +180,18 @@ align-items: center;
 .address{
   padding: 5px;
     text-transform: capitalize;
-    font-size: 18px;
+    font-size: 20px;
+    
+  }
+  .two{
+    border-top: 2px dotted;
+    width: 40%;
+    border-bottom: 2px dotted;
+  }
+  .date{
+  font-weight: 600;
+  padding: 5px;
+  text-transform: capitalize;
+  font-size: 20px;
 
-}
-.two{
-  border-top: 2px dotted;
-  width: 40%;
-  border-bottom: 2px dotted;
 }

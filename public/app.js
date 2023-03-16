@@ -154,3 +154,15 @@ updateButtons.forEach((button) => {
 
 
 
+// get the current product data from the page
+const productElems = document.querySelectorAll(".product-box-1");
+const productData = {};
+productElems.forEach((product) => {
+  const id = product.id;
+  const quantitySpan = product.querySelector(`#${id}-quantity`);
+  const priceSpan = product.querySelector(`#${id}-price`);
+  productData[id] = {stock: quantitySpan.textContent, price: priceSpan.textContent};
+});
+
+// store the product data in local storage
+localStorage.setItem("productData", JSON.stringify(productData));
