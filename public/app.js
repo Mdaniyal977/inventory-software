@@ -108,27 +108,26 @@ function printDiv() {
   dateSpan.textContent = dateString;
   timeSpan.textContent = timeString;
   
-  // get all update buttons
-  const updateButtons = document.querySelectorAll(".update-button");
-  
-  // add event listener to each update button
-  updateButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      // get the corresponding div element
-      const div = event.target.parentElement;
-  
-      // prompt user for stock and price
-      const stock = prompt("Enter new stock:");
-      const price = prompt("Enter new price:");
-  
-      // update the stock and price spans
-      div.querySelector("span[id$='-stock']").textContent = stock;
-      div.querySelector("span[id$='-price']").textContent = price;
-  
-      // display confirmation message
-      alert("Stock and price updated!");
-    });
-  });
+// get all update buttons
+const updateButtons = document.querySelectorAll(".update-button");
 
+// add event listener to each update button
+updateButtons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    // get the corresponding div element
+    const div = event.target.parentElement;
+
+    // prompt user for stock and price
+    const stock = prompt("Enter new stock:");
+    const price = prompt("Enter new price:");
+
+    // update the stock and price spans
+    div.querySelector("span[id$='-quantity']").textContent = stock;
+    div.querySelector("span[id$='-price']").textContent = price;
+
+    // display confirmation message
+    alert("Stock and price updated!");
+  });
+});
 
 
