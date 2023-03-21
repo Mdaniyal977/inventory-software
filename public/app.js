@@ -122,8 +122,8 @@ updateButtons.forEach((button) => {
     const price = prompt("Enter new price:");
 
     // update the stock and price spans
-    div.querySelector("span[id$='-quantity']").textContent = stock;
-    div.querySelector("span[id$='-price']").textContent = price;
+    div.querySelector("span[id$='-stock-cart']").textContent = stock;
+    div.querySelector("span[id$='-price-cart']").textContent = price;
 
     // display confirmation message
     alert("Stock and price updated!");
@@ -131,3 +131,88 @@ updateButtons.forEach((button) => {
 });
 
 
+// Define an array to store the cart items
+let cart = [];
+  
+// Define a function to add a product to the cart
+function addToCart(productId) {
+  let qtyInput = document.getElementById(productId + '-qty');
+  let qty = parseInt(qtyInput.value);
+  let product = document.getElementById(productId);
+  let productName = document.getElementById(productId + '-name').innerHTML;
+  let productPrice = parseFloat(document.getElementById(productId + '-price-cart').innerHTML);
+  let productStock = parseInt(document.getElementById(productId + '-stock-cart').innerHTML);
+console.log(product)
+  
+  if (productStock === 0) {
+    alert('Sorry, this product is out of stock.');
+    return;
+  }
+
+  if (qty > 0 && qty <= productStock) {
+    cart.push({name: productName, price: productPrice, qty: qty});
+
+    // Update the product stock
+    productStock -= qty;
+    document.getElementById(productId + '-stock-cart').innerHTML = productStock;
+
+    // Clear the quantity input
+    qtyInput.value = '';
+
+    // Update the cart display
+    updateCartDisplay();
+  } else {
+    alert('Please enter a valid quantity.');
+  }
+}
+
+function updateCartDisplay() {
+  let cartList = document.getElementById('cart');
+  cartList.innerHTML = '';
+  let totalPrice = 0;
+  let totalQty = 0;
+
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i];
+    let listItem = document.createElement('li');
+
+    // Create span tags for the product name, price, quantity, and total price
+    let nameSpan = document.createElement('span');
+    nameSpan.className = 'cart-item-name';
+    nameSpan.appendChild(document.createTextNode(item.name));
+
+    let priceSpan = document.createElement('span');
+    priceSpan.className = 'cart-item-price';
+    priceSpan.appendChild(document.createTextNode('Rs' + item.price.toFixed(2)));
+
+    let qtySpan = document.createElement('span');
+    qtySpan.className = 'cart-item-qty';
+    qtySpan.appendChild(document.createTextNode(item.qty));
+
+    let totalSpan = document.createElement('span');
+    totalSpan.className = 'cart-item-total';
+    totalSpan.appendChild(document.createTextNode('Rs' + (item.price * item.qty).toFixed(2)));
+
+
+    let itemText = document.createTextNode(' ');
+    listItem.appendChild(nameSpan);
+    listItem.appendChild(itemText);
+    listItem.appendChild(priceSpan);
+    listItem.appendChild(itemText);
+    listItem.appendChild(document.createTextNode('x'));
+    listItem.appendChild(itemText);
+    listItem.appendChild(qtySpan);
+    listItem.appendChild(itemText);
+    listItem.appendChild(document.createTextNode('='));
+    listItem.appendChild(itemText);
+    listItem.appendChild(totalSpan);
+
+    cartList.appendChild(listItem);
+    totalPrice += item.price * item.qty;
+    totalQty += item.qty;
+  }
+
+  // Update the total price and total items display
+  document.getElementById('total-price').innerHTML = 'Total Price: Rs' + totalPrice.toFixed(2);
+  document.getElementById('total-items').innerHTML = 'Total Items: ' + totalQty + ' items';
+}
