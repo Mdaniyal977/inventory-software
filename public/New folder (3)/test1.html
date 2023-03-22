@@ -7,11 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-  <!-- <div id="search">
-    <input type="text" id="search-input" placeholder="Search..." />
-    <button id="clear-btn">clear</button>
-    <button id="search-btn">Search</button>
-  </div> -->
   <section>
     <h2>Product List</h2>
     <div id="product-list">
@@ -38,9 +33,9 @@
   </section>
   <section>
     <h2>Shopping Cart</h2>
+    <button id="empty-cart">empty cart </button>
     <ol id="cart"></ol>
     <p> <span id="total-items"></span> <span id="total-price"></span></p>
-    <button id="empty-cart-btn">Empty Cart</button>
   </section>
   
   <script>
@@ -80,36 +75,56 @@
       alert('Please enter a valid quantity.');
     }
   }
+  // Define a function to remove all items from the cart
+function emptyCart() {
+  // Empty the cart array
+  cart = [];
   
-  function updateCartDisplay() {
+  // Update the cart display
+  updateCartDisplay();
+}
+
+// Get the empty-cart button
+const emptyCartButton = document.getElementById('empty-cart');
+
+// Add an event listener to the empty-cart button
+emptyCartButton.addEventListener('click', emptyCart);
+
+function updateCartDisplay() {
     let cartList = document.getElementById('cart');
     cartList.innerHTML = '';
     let totalPrice = 0;
     let totalQty = 0;
-  
+
     for (let i = 0; i < cart.length; i++) {
       let item = cart[i];
       let listItem = document.createElement('li');
-  
+
+      // Create input tag for the checkbox
+      let checkboxInput = document.createElement('input');
+      checkboxInput.type = 'checkbox';
+      checkboxInput.id = 'checkbox-' + i;
+      checkboxInput.className = 'cart-item-checkbox';
+
       // Create span tags for the product name, price, quantity, and total price
       let nameSpan = document.createElement('span');
       nameSpan.className = 'cart-item-name';
       nameSpan.appendChild(document.createTextNode(item.name));
-  
+
       let priceSpan = document.createElement('span');
       priceSpan.className = 'cart-item-price';
       priceSpan.appendChild(document.createTextNode('Rs' + item.price.toFixed(2)));
-  
+
       let qtySpan = document.createElement('span');
       qtySpan.className = 'cart-item-qty';
       qtySpan.appendChild(document.createTextNode(item.qty));
-  
+
       let totalSpan = document.createElement('span');
       totalSpan.className = 'cart-item-total';
       totalSpan.appendChild(document.createTextNode('Rs' + (item.price * item.qty).toFixed(2)));
-  
-  
+
       let itemText = document.createTextNode(' ');
+      listItem.appendChild(checkboxInput);
       listItem.appendChild(nameSpan);
       listItem.appendChild(itemText);
       listItem.appendChild(priceSpan);
@@ -134,12 +149,7 @@
   // get all update buttons
 const updateButtons = document.querySelectorAll('.update-button');
 
-// add event listener to each update button
-updateButtons.forEach(function(button) {
-  button.addEventListener('click', function() {
-    alert('This button has been clicked!');
-  });
-});
+
   // add event listener to each update button
   updateButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
@@ -159,20 +169,6 @@ updateButtons.forEach(function(button) {
     });
   });
   showDivs();
-  // Add event listener to empty cart button
-  
-    const emptyCartButton = document.querySelector('#empty-cart-button');
-const cartList = document.querySelector('#cart-list');
-
-emptyCartButton.addEventListener('click', function() {
-  const cartItems = document.querySelectorAll('.cart-item');
-  
-  cartItems.forEach(function(item) {
-    item.remove();
-  });
-  
-  // update any other necessary variables or state
-});
   </script>
     
 </body>

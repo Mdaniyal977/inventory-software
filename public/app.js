@@ -166,6 +166,25 @@ console.log(product)
   }
 }
 
+
+
+  // Define a function to remove all items from the cart
+  function emptyCart() {
+    // Empty the cart array
+    cart = [];
+    
+    // Update the cart display
+    updateCartDisplay();
+  }
+  
+  // Get the empty-cart button
+  const emptyCartButton = document.getElementById('empty-cart');
+  
+  // Add an event listener to the empty-cart button
+  emptyCartButton.addEventListener('click', emptyCart);
+
+
+
 function updateCartDisplay() {
   let cartList = document.getElementById('cart');
   cartList.innerHTML = '';
